@@ -5,11 +5,16 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 export async function GET() {
   try {
     const { userId } = await auth();
+
     if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
     }
 
-    const supabase = createSupabaseServerClient();
+    // createSupabaseServerClient() is async, so we must await it
+    const supabase = await createSupabaseServerClient();
 
     // 1. Fetch internal profile
     const { data: profile } = await supabase
@@ -19,7 +24,10 @@ export async function GET() {
       .maybeSingle();
 
     if (!profile) {
-      return NextResponse.json({ error: "Profile not found" }, { status: 404 });
+      return NextResponse.json(
+        { error: "Profile not found" },
+        { status: 404 }
+      );
     }
 
     // 2. Fetch candidate applications count
@@ -35,8 +43,9 @@ export async function GET() {
       "avatar_url",
       "resume_url",
       "target_role",
-      "location"
+      "location",
     ];
+
     let filledFields = 0;
     const missingFields: string[] = [];
 
@@ -48,17 +57,23 @@ export async function GET() {
       }
     });
 
-    const completionPercentage = Math.round((filledFields / checkFields.length) * 100);
+    const completionPercentage = Math.round(
+      (filledFields / checkFields.length) * 100
+    );
 
     return NextResponse.json({
-      profile,
-      metrics: {
-        completionPercentage,
-        missingFields,
-        totalApplications: applicationCount || 0
-      }
+      profile: {
+        metrics: {
+          completionPercentage,
+          missingFields,
+          totalApplications: applicationCount || 0,
+        },
+      },
     });
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: err?.message || "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
