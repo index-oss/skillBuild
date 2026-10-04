@@ -48,3 +48,6 @@ export default async function AppLayout({
   );
 }
 
+import { UserButton } from '@clerk/nextjs';
+// Aur navbar ke andar:
+<UserButton afterSignOutUrl="/sign-in" />
