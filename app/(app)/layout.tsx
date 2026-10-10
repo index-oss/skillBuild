@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { AppSidebar } from "@/components/app-sidebar";
 import { MobileNav } from "@/components/layout/mobile-nav";
@@ -16,6 +16,10 @@ export default async function AppLayout({
   if (!userId) {
     redirect("/sign-in");
   }
+
+  // Fetching current Clerk user to safely handle fullName / user details if needed for typing
+  const user = await currentUser();
+  const fullName = user ? `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim() : "";
 
   const supabase = await createSupabaseServerClient();
 
@@ -47,7 +51,3 @@ export default async function AppLayout({
     </div>
   );
 }
-
-import { UserButton } from '@clerk/nextjs';
-// Aur navbar ke andar:
-<UserButton afterSignOutUrl="/sign-in" />
