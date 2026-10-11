@@ -12,8 +12,9 @@
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Backend / Tools:** Python / Node.js (Update as applicable)
+- **Framework:** Next.js (TypeScript). 
+- **Styling / Components:** Tailwind CSS / PostCSS. 
+- **Backend & Database:** Supabase.
 
 ---
 
