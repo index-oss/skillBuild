@@ -24,7 +24,7 @@ To get a local copy up and running, follow these simple steps:
 
 ```bash
 # Clone the repository
-git clone [https://github.com/index-oss/skillBuild.git](https://github.com/index-oss/skillBuild.git)
+git clone [https://github.com/index-oss/skillBuild.git]
 
 # For run the directory localhost/5000
 pnpm build or pnpm dev
