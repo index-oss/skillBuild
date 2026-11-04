@@ -4,6 +4,7 @@ import { getRecruiterStats } from "@/lib/recruiter/queries";
 import { PageShell } from "@/components/layout/page-shell";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import JobPostForm from "@/components/recruiter/job-form"; // Naya custom job form component import kiya
 
 export default async function RecruiterDashboardPage() {
   const allowed = await hasAnyRole(["recruiter", "admin"]);
@@ -61,6 +62,12 @@ export default async function RecruiterDashboardPage() {
               {stats.shortlisted}
             </p>
           </Card>
+        </div>
+
+        {/* Optional: Agar aap dashboard par hi direct job creation form dikhana chahte hain */}
+        <div className="mt-4">
+          <h2 className="text-xl font-bold text-white mb-4">Quick Job & Company Setup</h2>
+          <JobPostForm />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
