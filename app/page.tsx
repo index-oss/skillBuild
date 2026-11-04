@@ -66,13 +66,12 @@ export default async function HomePage() {
         <div className="pointer-events-none absolute top-1/4 left-1/2 h-96 w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[120px]" />
         <div className="pointer-events-none absolute top-1/3 left-1/3 h-72 w-72 rounded-full bg-indigo-600/15 blur-[100px]" />
 
-        {/* AI-Powered Career & Hiring Platform Badge 
-        <div className="relative mx-auto max-w-5xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold text-blue-400">
-            <span className="flex h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
-            AI-Powered Career &amp; Hiring Platform
-          </div>
-        </div> */}
+        {/*
+<div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold text-blue-400">
+  <span className="flex h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
+  AI-Powered Career &amp; Hiring Platform
+</div>
+*/}
 
           <h1 className="mt-8 text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl">
             Learn with purpose.{" "}
