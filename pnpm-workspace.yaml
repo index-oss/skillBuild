@@ -1,2 +1,8 @@
 allowBuilds:
+<<<<<<< HEAD
   unrs-resolver: set this to true or false
+=======
+  unrs-resolver: true
+  '@img/sharp-win32-x64': true
+  '@next/swc-win32-x64-msvc': true
+>>>>>>> 01e3ebe (Intital commit)

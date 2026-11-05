@@ -2,7 +2,11 @@ export const dynamic = "force-dynamic";
 
 import { notFound, redirect } from "next/navigation";
 import { hasAnyRole } from "@/lib/auth/roles";
+<<<<<<< HEAD
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+=======
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+>>>>>>> 01e3ebe (Intital commit)
 import { getAuthenticatedProfile } from "@/lib/recruiter/permissions";
 import { PageShell } from "@/components/layout/page-shell";
 import { Card } from "@/components/ui/card";
@@ -35,7 +39,11 @@ export default async function CompanyDetailPage({
 
   const { id } = await params;
 
+<<<<<<< HEAD
   const supabase = await createSupabaseServerClient();
+=======
+  const supabase = createSupabaseAdminClient();
+>>>>>>> 01e3ebe (Intital commit)
 
   const { data: membership } = await supabase
     .from("company_members")
@@ -130,10 +138,17 @@ export default async function CompanyDetailPage({
                 "No company description has been added yet."}
             </p>
 
+<<<<<<< HEAD
             {company.website && (
               <div className="mt-5">
                 <a
                   href={company.website}
+=======
+            {company.website_url && (
+              <div className="mt-5">
+                <a
+                  href={company.website_url}
+>>>>>>> 01e3ebe (Intital commit)
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm text-blue-400 hover:text-blue-300"

@@ -99,7 +99,11 @@ export async function GET() {
         .eq("status", "active")
         .in("role", [
           "owner",
+<<<<<<< HEAD
           "admin",
+=======
+          // "admin",
+>>>>>>> 01e3ebe (Intital commit)
           "company_admin",
           "recruiter",
         ]);
@@ -218,13 +222,21 @@ export async function POST(request: Request) {
     const { data: membership, error: membershipError } =
       await supabaseAdmin
         .from("company_members")
+<<<<<<< HEAD
         .select("id, role, status")
+=======
+        .select("company_id, role, status")
+>>>>>>> 01e3ebe (Intital commit)
         .eq("company_id", companyId)
         .eq("profile_id", profile.id)
         .eq("status", "active")
         .in("role", [
           "owner",
+<<<<<<< HEAD
           "admin",
+=======
+          // "admin",
+>>>>>>> 01e3ebe (Intital commit)
           "company_admin",
           "recruiter",
         ])

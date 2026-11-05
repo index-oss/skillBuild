@@ -90,7 +90,11 @@ export async function canManageCompany(companyId: string) {
     return false;
   }
 
+<<<<<<< HEAD
   return ["owner", "admin", "company_admin", "recruiter"].includes(data.role);
+=======
+  return ["owner", "company_admin", "recruiter"].includes(data.role);
+>>>>>>> 01e3ebe (Intital commit)
 }
 
 export async function canManageJob(jobId: string) {
@@ -136,7 +140,11 @@ export async function isCompanyAdmin(companyId: string) {
     return false;
   }
 
+<<<<<<< HEAD
   return ["owner", "admin", "company_admin"].includes(data.role);
+=======
+  return ["owner", "company_admin"].includes(data.role);
+>>>>>>> 01e3ebe (Intital commit)
 }
 
 

@@ -1,10 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { createClient } from '@/utils/supabase/client';
 
 export default function JobPostForm() {
   const supabase = createClient();
+=======
+import { supabase } from '@/lib/supabase/client';
+
+export default function JobPostForm() {
+  // Uses shared supabase singleton from @/lib/supabase/client
+>>>>>>> 01e3ebe (Intital commit)
   
   const [companies, setCompanies] = useState<any[]>([]);
   const [selectedCompanyId, setSelectedCompanyId] = useState('');
